@@ -17,6 +17,13 @@
 		6AB24DF523EB556700530BA5 /* ListContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB24DF423EB556700530BA5 /* ListContactsService.swift */; };
 		6AB24DF823EB558D00530BA5 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB24DF723EB558D00530BA5 /* ContactCell.swift */; };
 		6ABE2F9024CEF691009D7593 /* ListContactServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABE2F8F24CEF691009D7593 /* ListContactServiceTests.swift */; };
+		8B04E7E42E75D88400FBEB91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04E7E32E75D88400FBEB91 /* Constants.swift */; };
+		8B04E7E62E75DF3800FBEB91 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8B04E7E52E75DF3800FBEB91 /* Localizable.xcstrings */; };
+		8B04E7E92E75E32500FBEB91 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04E7E82E75E32500FBEB91 /* String+Extension.swift */; };
+		8B04E7EE2E75F2F800FBEB91 /* LocalImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04E7ED2E75F2F800FBEB91 /* LocalImageCache.swift */; };
+		8B04E7F02E76039400FBEB91 /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04E7EF2E76039400FBEB91 /* ErrorState.swift */; };
+		8B04E7F22E7609E900FBEB91 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04E7F12E7609E900FBEB91 /* MockURLProtocol.swift */; };
+		8B04E7F42E76100200FBEB91 /* ListContactServiceFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04E7F32E76100200FBEB91 /* ListContactServiceFake.swift */; };
 		B163815028775CAD0096BF33 /* ListContactViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +52,13 @@
 		6AB24DF423EB556700530BA5 /* ListContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsService.swift; sourceTree = "<group>"; };
 		6AB24DF723EB558D00530BA5 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		6ABE2F8F24CEF691009D7593 /* ListContactServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactServiceTests.swift; sourceTree = "<group>"; };
+		8B04E7E32E75D88400FBEB91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8B04E7E52E75DF3800FBEB91 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		8B04E7E82E75E32500FBEB91 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		8B04E7ED2E75F2F800FBEB91 /* LocalImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageCache.swift; sourceTree = "<group>"; };
+		8B04E7EF2E76039400FBEB91 /* ErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
+		8B04E7F12E7609E900FBEB91 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		8B04E7F32E76100200FBEB91 /* ListContactServiceFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactServiceFake.swift; sourceTree = "<group>"; };
 		B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +122,8 @@
 		6AB24DEB23EB54F500530BA5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8B04E7EC2E75F2D800FBEB91 /* ImageCache */,
+				8B04E7E72E75E30F00FBEB91 /* Extensions */,
 				6AB24DEC23EB550100530BA5 /* ListContacts */,
 			);
 			path = Scenes;
@@ -136,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				6AB24DF123EB554300530BA5 /* ListContactsViewModel.swift */,
+				8B04E7EF2E76039400FBEB91 /* ErrorState.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -144,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				6AB24DF423EB556700530BA5 /* ListContactsService.swift */,
+				8B04E7E32E75D88400FBEB91 /* Constants.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -162,8 +180,25 @@
 			children = (
 				6AB24DC823EB546F00530BA5 /* Assets.xcassets */,
 				6AB24DCA23EB546F00530BA5 /* LaunchScreen.storyboard */,
+				8B04E7E52E75DF3800FBEB91 /* Localizable.xcstrings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8B04E7E72E75E30F00FBEB91 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B04E7E82E75E32500FBEB91 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8B04E7EC2E75F2D800FBEB91 /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				8B04E7ED2E75F2F800FBEB91 /* LocalImageCache.swift */,
+			);
+			path = ImageCache;
 			sourceTree = "<group>";
 		};
 		B163814B28775C780096BF33 /* Scenes */ = {
@@ -187,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */,
+				8B04E7F32E76100200FBEB91 /* ListContactServiceFake.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				6ABE2F8F24CEF691009D7593 /* ListContactServiceTests.swift */,
+				8B04E7F12E7609E900FBEB91 /* MockURLProtocol.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -263,6 +300,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 6AB24DB323EB546D00530BA5;
 			productRefGroup = 6AB24DBD23EB546D00530BA5 /* Products */;
@@ -282,6 +320,7 @@
 			files = (
 				6AB24DCC23EB546F00530BA5 /* LaunchScreen.storyboard in Resources */,
 				6AB24DC923EB546F00530BA5 /* Assets.xcassets in Resources */,
+				8B04E7E62E75DF3800FBEB91 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,10 +339,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB24DEF23EB552100530BA5 /* Contact.swift in Sources */,
+				8B04E7E92E75E32500FBEB91 /* String+Extension.swift in Sources */,
 				6AB24DEA23EB54E800530BA5 /* ListContactsViewController.swift in Sources */,
 				6AB24DF523EB556700530BA5 /* ListContactsService.swift in Sources */,
+				8B04E7F02E76039400FBEB91 /* ErrorState.swift in Sources */,
 				6AB24DC023EB546D00530BA5 /* AppDelegate.swift in Sources */,
 				6AB24DF223EB554300530BA5 /* ListContactsViewModel.swift in Sources */,
+				8B04E7EE2E75F2F800FBEB91 /* LocalImageCache.swift in Sources */,
+				8B04E7E42E75D88400FBEB91 /* Constants.swift in Sources */,
 				6AB24DF823EB558D00530BA5 /* ContactCell.swift in Sources */,
 				6AB24DC223EB546D00530BA5 /* SceneDelegate.swift in Sources */,
 			);
@@ -313,8 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B04E7F22E7609E900FBEB91 /* MockURLProtocol.swift in Sources */,
 				6ABE2F9024CEF691009D7593 /* ListContactServiceTests.swift in Sources */,
 				B163815028775CAD0096BF33 /* ListContactViewModelTests.swift in Sources */,
+				8B04E7F42E76100200FBEB91 /* ListContactServiceFake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +441,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -449,6 +495,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -467,7 +514,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.picpay.Interview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -485,7 +533,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.picpay.Interview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -1,14 +1,34 @@
 import XCTest
 @testable import Interview
 
-class ListContactServiceTests: XCTestCase {
-
+final class ListContactServiceTests: XCTestCase {
+    private var sut: ListContactService!
+    private var session: URLSession!
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = ListContactService()
+    }
+    
+    func testFetchContacts() async throws {
+        let contacts = try await sut.fetchContacts()
+        XCTAssertEqual(contacts?.count, 13)
+    }
+
+    func testLoadImage() async throws {
+        let image = try await sut.loadImage("https://picsum.photos/id/238/200/")
+        XCTAssertNotNil(image)
+    }
+
+    func testLoadImageWrongUrl() async throws {
+        do{
+            let _ = try await sut.loadImage("https:///200/")
+            XCTFail("Error not thrown when loading image with wrong url")
+       } catch { }
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        session = nil
+        MockURLProtocol.error = nil
+        sut = nil
     }
 }
 

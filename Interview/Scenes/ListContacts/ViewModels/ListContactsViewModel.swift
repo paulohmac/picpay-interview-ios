@@ -1,26 +1,37 @@
 import Foundation
+import UIKit
+@MainActor
+struct ListContactsViewModel: ListContactsViewModelProtocol  {
+    private let service: ListContactServiceProtocol?
+    private let imageCache: LocalImageCache? = LocalImageCache()
 
-class ListContactsViewModel {
-    private let service = ListContactService()
-    
-    private var completion: (([Contact]?, Error?) -> Void)?
-    
-    init() { }
-    
-    func loadContacts(_ completion: @escaping ([Contact]?, Error?) -> Void) {
-        self.completion = completion
-        service.fetchContacts { contacts, err in
-            self.handle(contacts, err)
-        }
+    init(_ service: ListContactServiceProtocol){
+        self.service = service
+    }
+
+    func loadContacts() async throws -> [Contact]?{
+        var contacts: [Contact]?
+        try await contacts = service?.fetchContacts()
+        return contacts
     }
     
-    private func handle(_ contacts: [Contact]?, _ error: Error?) {
-        if let e = error {
-            completion?(nil, e)
+    func loadImage(_ url: String) async throws -> UIImage? {
+        var image: UIImage?
+        if let cachedImage = imageCache?.getImage(url) {
+            image = cachedImage
+        } else{
+            image = try await service?.loadImage(url)
         }
-        
-        if let contacts = contacts {
-            completion?(contacts, nil)
-        }
+        return image
     }
+    
+    nonisolated func isLegacy(id: Int) -> Bool{
+        return [10, 11, 12, 13].contains(id)
+    }
+}
+
+protocol ListContactsViewModelProtocol: Sendable{
+    func loadContacts() async throws -> [Contact]?
+    func loadImage(_ url: String) async throws -> UIImage?
+    func isLegacy(id: Int) -> Bool
 }

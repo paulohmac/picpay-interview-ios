@@ -2,7 +2,22 @@
 
 ## Aviso aos candidatos participando do nosso processo: Faremos um Pair Programming na hora da entrevista. Se atente aos seguintes pontos:
 
-- 🖥 Esteja com sua máquina e seu Xcode funcionando normalmente;
-- ✏️ Se possível, clone ou baixe o projeto. Sinta-se à vontade para executar e estudar o projeto de antemão;
-- 🙏🏻 Caso realize alguma alteração, favor revertê-la antes da entrevista;
-- 😁 Esteja bem hidratado e aproveite, esperamos que você goste de programar conosco!
+Alterações implementadas:
+-migrado para Swift 6 
+-Convertido para Swift concurency API
+-Strings extraidas para StringCatalog e localizado os textos.
+-Refatorado para carregar imagens em background.
+-Extraído protocolos. 
+-Alterado ViewModel e Models para structs.
+-Adicionado tratamento de erro, pode ser melhorado adicionado os tipos de erros e mensagens personalizadas.
+-Criado cache das imagens.
+-Reorganizado responsabilidades das camadas.
+-Correção de alguns bugs.
+-Adicionado testes unitários.
+-Algumas melhorias no visual.
+
+Road map futuro
+-Adicionar firebase para monitorar crashs
+-Data dog para métricas de performance.
+-Migrar a camada de View para SwiftUI e por consequencia converter a ViewModel para um observable
+-Adicionar testes de snaphosts

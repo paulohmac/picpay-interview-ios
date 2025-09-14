@@ -1,29 +1,40 @@
 import Foundation
+import UIKit
+@MainActor
+class ListContactService: ListContactServiceProtocol {
 
-private let apiURL = "https://669ff1b9b132e2c136ffa741.mockapi.io/picpay/ios/interview/contacts"
+    func fetchContacts() async throws -> [Contact]? {
+        guard let url = URL(string: Constants.apiURL) else {
+            throw ErrorState.serverError
+        }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw ErrorState.serverError
+        }
 
-class ListContactService {
-    func fetchContacts(completion: @escaping ([Contact]?, Error?) -> Void) {
-        guard let api = URL(string: apiURL) else {
-            return
-        }
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: api) { (data, response, error) in
-            guard let jsonData = data else {
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let decoded = try decoder.decode([Contact].self, from: jsonData)
-                
-                completion(decoded, nil)
-            } catch let error {
-                completion(nil, error)
-            }
-        }
-        
-        task.resume()
+        let posts = try JSONDecoder().decode([Contact].self, from: data)
+        return posts
     }
+    
+    func loadImage(_ url: String) async throws -> UIImage? {
+        guard let url = URL(string: url) else {
+            throw ErrorState.serverError
+        }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw ErrorState.serverError
+        }
+
+        guard let image = UIImage(data: data) else {
+            return nil
+        }
+        return image
+    }
+}
+
+protocol ListContactServiceProtocol: Sendable{
+    func fetchContacts() async throws -> [Contact]?
+    func loadImage(_ url: String) async throws -> UIImage?
 }
